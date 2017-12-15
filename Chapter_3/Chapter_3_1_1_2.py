@@ -1,4 +1,4 @@
-# coding = utf-8
+# coding:utf-8
 
 # 导入pandas并且更名为pd。
 import pandas as pd
@@ -27,7 +27,7 @@ X_train = vec.fit_transform(X_train.to_dict(orient='record'))
 X_test = vec.transform(X_test.to_dict(orient='record'))
 
 # 输出处理后特征向量的维度。
-print len(vec.feature_names_)
+print len(vec.feature_names_)# 474
 
 # 使用决策树模型依靠所有特征进行预测，并作性能评估。
 from sklearn.tree import DecisionTreeClassifier
@@ -60,8 +60,11 @@ for i in percentiles:
     results = np.append(results, scores.mean())
 print results
 
+# print(np.where(results == results.max()))#返回的是一个(array([3], dtype=int64),)元组形式的数据，我们需要的是这个results.max的索引，3正是索引，
+#我们就要想办法把3提取出来，可以看出[3]是一个array也就是矩阵形式的，那么3所在的位置是一行一列，所以在下一步骤做相应的提取
+# http://blog.csdn.net/llx1026/article/details/77985798
 # 找到提现最佳性能的特征筛选的百分比。
-opt = np.where(results == results.max())[0]
+opt = np.where(results == results.max())[0][0]#这一句跟源代码有出入，查看文档np.where返回的是 ndarray or tuple of ndarrays类型数据
 print 'Optimal number of features %d' % percentiles[opt]
 
 import pylab as pl
@@ -76,6 +79,7 @@ from sklearn import feature_selection
 
 fs = feature_selection.SelectPercentile(feature_selection.chi2, percentile=7)
 X_train_fs = fs.fit_transform(X_train, y_train)
-dt.fit(X_train_fs, y_train)
 X_test_fs = fs.transform(X_test)
-dt.score(X_test_fs, y_test)
+
+dt.fit(X_train_fs, y_train)
+print dt.score(X_test_fs, y_test)
