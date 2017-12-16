@@ -1,4 +1,4 @@
-# coding = utf-8
+# coding:utf-8
 sent1 = 'The cat is walking in the bedroom.'
 sent2 = 'A dog was running across the kitchen.'
 
