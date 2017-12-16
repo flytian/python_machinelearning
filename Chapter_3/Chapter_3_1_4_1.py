@@ -1,4 +1,4 @@
-# coding = utf-8
+# coding:utf-8
 
 # 从sklearn.datasets中导入20类新闻文本抓取器。
 from sklearn.datasets import fetch_20newsgroups
@@ -35,8 +35,7 @@ from sklearn.grid_search import GridSearchCV
 gs = GridSearchCV(clf, parameters, verbose=2, refit=True, cv=3)
 
 # 执行单线程网格搜索。
-% time
-_ = gs.fit(X_train, y_train)
+% time_ = gs.fit(X_train, y_train)
 gs.best_params_, gs.best_score_
 
 # 输出最佳模型在测试集上的准确性。

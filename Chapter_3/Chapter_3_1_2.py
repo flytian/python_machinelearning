@@ -1,4 +1,4 @@
-# coding = utf-8
+# coding:utf-8
 
 # 输入训练样本的特征以及目标值，分别存储在变量X_train与y_train之中。
 X_train = [[6], [8], [10], [14], [18]]

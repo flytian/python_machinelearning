@@ -36,8 +36,7 @@ from sklearn.grid_search import GridSearchCV
 gs = GridSearchCV(clf, parameters, verbose=2, refit=True, cv=3, n_jobs=-1)
 
 # 执行多线程并行网格搜索。
-% time
-_ = gs.fit(X_train, y_train)
+% time _ = gs.fit(X_train, y_train)
 gs.best_params_, gs.best_score_
 
 # 输出最佳模型在测试集上的准确性。
