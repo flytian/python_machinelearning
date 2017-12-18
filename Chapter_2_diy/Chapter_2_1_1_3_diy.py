@@ -34,7 +34,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
 
 
-def classfication_Lgs(X_train, y_train, X_test, y_test, news):
+def classfication_NB(X_train, y_train, X_test, y_test, news):
     mnb = MultinomialNB()
     mnb.fit(X_train, y_train)
     y_predict = mnb.predict(X_test)
@@ -48,7 +48,7 @@ def main():
     news = get_news()
     X_train, X_test, y_train, y_test = get_train_tezt_X_Y(news)
     X_train, X_test = vectorizer(X_train, X_test)
-    classfication_Lgs(X_train, y_train, X_test, y_test, news)
+    classfication_NB(X_train, y_train, X_test, y_test, news)
     print("===========end===========")
 
 
