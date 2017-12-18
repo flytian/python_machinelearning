@@ -61,14 +61,14 @@ def get_DT():
 def classifiaction_DT(X_train, X_test, y_train, y_test):
     dt = get_DT()
     dt.fit(X_train, y_train)
-    dt.score(X_test, y_test)
+    print(dt.score(X_test, y_test))
 
 
 def classifiaction_DT_percent(X_train, X_test, y_train, y_test, percentile):
     dt = get_DT()
     X_train_fs, X_test_fs = selection_percentile(X_train, X_test, y_train, percentile)
     dt.fit(X_train_fs, y_train)
-    dt.score(X_test_fs, y_test)
+    print(dt.score(X_test_fs, y_test))
 
 
 import pylab as pl
